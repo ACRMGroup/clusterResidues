@@ -188,8 +188,12 @@ sub UsageDie
     print <<__EOF;
 
 Usage: hydrophobicity [-c hphobFile] [in.num] > out.hyd
+       -c specify hydrophobicity file (default: consensus.hpb)
 
-Takes 
+Takes a numbered sequence file (in .seq format) and outputs the residue
+numbers together with hydrophobicities.
 
 __EOF
+
+    exit 0;    
 }
