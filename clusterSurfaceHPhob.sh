@@ -8,5 +8,5 @@ fi
 
 stem=`basename $numfile .num`
 
-./hydrophibicity.pl $numfile > /tmp/$stem.hyd
+./hydrophobicity.pl $numfile > /tmp/$stem.hyd
 ./clusterResidues.pl -d=4.0 -m=3 distmat_all.dat access.dat '>20' /tmp/$stem.hyd '>0.2'
