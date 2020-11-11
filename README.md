@@ -15,7 +15,10 @@ To run the program you give it the distance matrix followed by one or more pairs
 
 for help.
 
-For a quick demo, type
+For a quick demo:
+    FIRST INSTALL BIOPTOOLS
+
+then type:
 
     ./clusterSurfaceHPhob.sh test/1yqv.num
 
@@ -37,6 +40,9 @@ This is the main clustering program
 ### hydrophibicity.pl
 Takes a numbered sequence file and generates a hydrophobicity file
 
+### unusual.pl
+Takes a numbered sequence file and generates a file of residue frequencies
+
 ### access.sh
 Takes a PDB file and generates a file listing residue identifiers and
 relative sidechain accessibility
@@ -45,21 +51,27 @@ relative sidechain accessibility
 Wrapper to hydrophobicity.pl and clusterResidues.pl that finds surface
 hydrophobic patches
 
+### clusterSurfaceUnusual.sh
+Wrapper to unusual.pl and clusterResidues.pl that finds surface
+unusual residue patches
+
 Data files
 ----------
-- `distmat.dat`     - full CA distance matrix from December 2011
-- `access.dat`      - residue accessibility file generated from 1yqv
+- `distmat.dat`      - full CA distance matrix from December 2011
+- `access.dat`       - residue accessibility file generated from 1yqv
 
-- `distmat_all.dat` - test all atom distance matrix from 2 PDBs
-- `distmat_sc.dat`  - test sidechain atom distance matrix from 2 PDBs
+- `distmat_all.dat`  - test all atom distance matrix from 2 PDBs
+- `distmat_sc.dat`   - test sidechain atom distance matrix from 2 PDBs
 
-- `1yqv.hyd`        - Output of hydrophobicity.pl on 1yqv.num
-- `1yqv.num`        - Numbered 1yqv file
-- `1yqv.pdb`        - 1YQV - Fv fragment
+- `1yqv.hyd`         - Output of hydrophobicity.pl on 1yqv.num
+- `1yqv.num`         - Numbered 1yqv file
+- `1yqv.pdb`         - 1YQV - Fv fragment
+- `HumanChothia.dat` - 
 
 The distance matrix files are created using the distmat program from
 git@github.com:UCL/abysis.git/abysis/src/c/distmat
-
+or from
+git@github.com:ACRMGroup/bioplib.git
 
 
 Notes
