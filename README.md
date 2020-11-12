@@ -9,18 +9,21 @@ criteria. You need:
 
 Distance matrices averaged across all antibody structures are provided (see below).
 
-To run the program you give it the distance matrix followed by one or more pairs of property files and cutoffs. Type
+To run the program you give it the distance matrix followed by one or
+more pairs of property files and cutoffs. Type
 
-    ./clusterResidues.pl -h
+```
+   ./clusterResidues.pl -h
+```
 
 for help.
 
-For a quick demo:
-    FIRST INSTALL BIOPTOOLS
+For a quick demo type:
 
-then type:
-
+```
     ./clusterSurfaceHPhob.sh test/1yqv.num
+    ./clusterSurfaceUnusual.sh test/1yqv.num
+```
 
 This:
 - takes a numbered sequence file for an antibody and assigns the hydrophicity scores
@@ -29,6 +32,21 @@ This:
 - requires at least three residues are present in each cluster
 - requires that the accessibility (from the accessibility data calculated for antibody 1yqv) is >20%
 - requires that the hydrophobicity scores are >0.2
+
+
+For a more accurate calculation
+
+```
+   **FIRST INSTALL BIOPTOOLS**
+```
+
+then type:
+
+```
+    ./clusterSurfaceHPhobFullCalc.sh test/1yqv.num
+    ./clusterSurfaceUnusualFullCalc.sh test/1yqv.num
+```
+
 
 
 Programs
@@ -49,11 +67,21 @@ relative sidechain accessibility
 
 ### clusterSurfaceHPhob.sh
 Wrapper to hydrophobicity.pl and clusterResidues.pl that finds surface
-hydrophobic patches
+hydrophobic patches. Uses pre-calculated average distances and accessibilities.
+
+### clusterSurfaceHPhobFullCalc.sh
+Wrapper to hydrophobicity.pl and clusterResidues.pl that finds surface
+hydrophobic patches. Uses programs from BiopTools to calculate the distances
+and accessibilities.
 
 ### clusterSurfaceUnusual.sh
 Wrapper to unusual.pl and clusterResidues.pl that finds surface
-unusual residue patches
+unusual residue patches. Uses pre-calculated average distances and accessibilities.
+
+### clusterSurfaceUnusualFullCalc.sh
+Wrapper to unusual.pl and clusterResidues.pl that finds surface
+unusual residue patches. Uses programs from BiopTools to calculate the distances
+and accessibilities.
 
 Data files
 ----------
@@ -66,7 +94,7 @@ Data files
 - `1yqv.hyd`         - Output of hydrophobicity.pl on 1yqv.num
 - `1yqv.num`         - Numbered 1yqv file
 - `1yqv.pdb`         - 1YQV - Fv fragment
-- `HumanChothia.dat` - 
+- `HumanChothia.dat` - human residue frequencies using Chothia numbering
 
 The distance matrix files are created using the distmat program from
 git@github.com:UCL/abysis.git/abysis/src/c/distmat
